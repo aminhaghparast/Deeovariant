@@ -1,3 +1,4 @@
+nextflow.enable.dsl = 1
 /*
 *  Google DeepVariant as a Nextflow pipeline!
 *
