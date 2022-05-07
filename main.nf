@@ -1,3 +1,4 @@
+export NXF_DEFAULT_DSL=1
 /*
 *  Google DeepVariant as a Nextflow pipeline!
 *
