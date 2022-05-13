@@ -179,7 +179,7 @@ params.rgsm=20;
 
 process preprocessFASTA{
 
-  container 'lifebitai/preprocessingvctools'
+  container 'library://amin_haghparast/REPO/deepvariant_preprocessingvctools:v.1'
   publishDir "$baseDir/sampleDerivatives"
 
 
@@ -214,7 +214,7 @@ process preprocessBAM{
 
 
   tag "${bam[0]}"
-  container 'lifebitai/samtools'
+  container 'library://amin_haghparast/REPO/deepvariant_samtools:v.1'
   publishDir "$baseDir/sampleDerivatives"
 
   input:
@@ -240,7 +240,7 @@ process preprocessBAM{
 process BAMstats{
 
   tag "${bam[0]}"
-  container 'lifebitai/samtools'
+  container 'library://amin_haghparast/REPO/deepvariant_samtools:v.1'
 
   input:
   set file(bam), file(bai) from completeStats
@@ -384,7 +384,7 @@ process postprocess_variants{
 process vcftools{
   tag "$vcf"
 
-  container 'lifebitai/vcftools:latest'
+  container 'library://amin_haghparast/REPO/deepvariant_vcftools:v.1'
 
   input:
   set val(bam),file(vcf) from postout
@@ -405,7 +405,7 @@ process multiqc{
   tag "multiqc_report.html"
 
   publishDir "${params.resultdir}/MultiQC", mode: 'copy'
-  container 'lifebitai/multiqc:v1.7'
+  container 'library://amin_haghparast/REPO/deepvariant_multiqc:v.1'
 
   input:
   file(vcfout) from vcfout
